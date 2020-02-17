@@ -12,7 +12,7 @@
     },
     "background": {
         "scripts": [
-            "popup.js",
+            "popup.js"
         ]
     },
     "content_scripts": [
