@@ -11,16 +11,25 @@
         "default_popup": "popup.html"
     },
     "background": {
-        "scripts": ["popup.js", "background.js"]
-    }, 
+        "scripts": [
+            "popup.js",
+        ]
+    },
     "content_scripts": [
         {
-        "matches": ["http://*/*", "https://*/*"], 
-        "js": ["content.js"]
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": ["content.js"]
         },
         {
-        "matches": ["https://amazon.ca/*cart*"], 
-        "js": ["cart.js"]
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "css": ["bootstrap.min.css"],
+            "js": ["cart.js"]
         }
     ]
 }
