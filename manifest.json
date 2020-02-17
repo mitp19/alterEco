@@ -2,8 +2,25 @@
     "name": "RBC Case Competition",
     "version": "1.0",
     "description": "Build an Extension!",
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
     "manifest_version": 2,
     "browser_action": {
         "default_popup": "popup.html"
-      }
-  }
+    },
+    "background": {
+        "scripts": ["popup.js", "background.js"]
+    }, 
+    "content_scripts": [
+        {
+        "matches": ["http://*/*", "https://*/*"], 
+        "js": ["content.js"]
+        },
+        {
+        "matches": ["https://amazon.ca/*cart*"], 
+        "js": ["cart.js"]
+        }
+    ]
+}
