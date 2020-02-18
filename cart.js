@@ -25,7 +25,7 @@ function setCartScore() {
 function createScoreBadge(itemId) {
     let span = document.createElement("span");
     let score = getProductScore(itemId);
-    let badgeColor = getBadgeColor(score)
+    let badgeColor = getBadgeColor(score);
     total += score;
     count += 1;
     let scoreText = `alterEco Score ${score}`;
@@ -33,7 +33,6 @@ function createScoreBadge(itemId) {
     span.id = `altereco-score`;
     span.appendChild(document.createTextNode(scoreText))
     return span;
-    // <span class="badge badge-pill badge-primary">Primary</span>
 }
 
 function getBadgeColor(score) {
