@@ -1,0 +1,326 @@
+<html>
+    <head>
+        <style>
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+            #myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 50%;
+  height: 30px;
+  background-color: green;
+}
+            h1{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: darkgreen;
+                text-shadow: 1ch;
+                border-style: outset;
+                text-align: center;
+                font-weight: 100;
+                font-style: bold;
+                border: 2px solid green;
+                border-radius: 5px;
+                background-color: lightgrey;
+            }
+
+            hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+            </style>
+        <h1>
+            CONGRATULATIONS! YOU'VE COLLECTED <b><u>$165 GREEN </b></u> 
+        </h1>
+        <div id="myProgress">
+                <div id="myBar"></div>
+              </div>
+        <h1></class>
+          <h1> YOU'RE ANOTHER 7000 POINTS FROM ENETRING THE GOLD TIER. KEEP ON SHOPPING GREEN</h1>
+        </h1>
+        <hr>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+<div id="chartContainer1" style="width: 45%; height: 300px;display: inline-block;"></div> 
+<div id="chartContainer2" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
+<div id="chartContainer3" style="width: 45%; height: 300px;display: inline-block;"></div>
+<div id="chartContainer4" style="width: 45%; height: 300px;display: inline-block;"></div>
+</body>
+<script>
+    var chart = new CanvasJS.Chart("chartContainer1",
+    {
+        animationEnabled: true,
+        title: {
+            text: "Amount Spend($)"
+        },
+        axisX: {
+            interval: 10,
+        },
+        data: [
+        {
+            type: "splineArea",
+            color: "rgba(255,12,32,.3)",
+            dataPoints: [
+                { x: new Date(2020, 00, 1), y: 250 },
+                { x: new Date(2020, 01, 1), y: 279 },
+                { x: new Date(2020, 02, 1), y: 338 },
+                { x: new Date(2020, 03, 1), y: 235 },
+                { x: new Date(2020, 04, 1), y: 602 },
+                { x: new Date(2020, 05, 1), y: 239 },
+                { x: new Date(2020, 06, 1), y: 187 },
+                { x: new Date(2020, 07, 1), y: 214 },
+                { x: new Date(2020, 08, 1), y: 728 },
+                { x: new Date(2020, 09, 1), y: 483 },
+                { x: new Date(2020, 10, 1), y: 200 },
+                { x: new Date(2020, 11, 1), y: 284 },
+                { x: new Date(2020, 12, 1), y: 239 },
+                           ]
+        },
+        ]
+    });
+chart.render();
+
+var chart = new CanvasJS.Chart("chartContainer2",
+    {
+        animationEnabled: true,
+        title: {
+            text: "Items Bought(Type) by Percent",
+        },
+        data: [
+        {
+            type: "pie",
+            showInLegend: true,
+            dataPoints: [
+                { y: 21, legendText: "Electronics", indexLabel: "Electronics" },
+                { y: 11, legendText: "Food", indexLabel: "Food" },
+                { y: 9, legendText: "Safety/Hygiene", indexLabel: "Safety/Hygiene" },
+                { y: 11, legendText: "Home & Garden", indexLabel: "Home & Garden" },
+                { y: 10, legendText: "Pet Supplies", indexLabel: "Pet Supplies" },
+                { y: 24, legendText: "Outdoor", indexLabel: "Outdoor" },
+                { y: 14, legendText: "Office Products", indexLabel: "Office Products" }
+            ]
+        },
+        ]
+    });
+chart.render();
+
+var chart = new CanvasJS.Chart("chartContainer3",
+    {
+        animationEnabled: true,
+        title: {
+            text: "Number of Products Bought"
+        },
+        axisX: {
+            valueFormatString: "MMM",
+            interval: 1,
+            intervalType: "month"
+        },
+        axisY: {
+            includeZero: false
+        },
+        data: [
+        {
+          type: "line",
+          dataPoints: [
+              { x: new Date(2020, 00, 1), y: 45 },
+              { x: new Date(2020, 01, 1), y: 41 },
+              { x: new Date(2020, 02, 1), y: 52, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
+              { x: new Date(2020, 03, 1), y: 46 },
+              { x: new Date(2020, 04, 1), y: 45 },
+              { x: new Date(2020, 05, 1), y: 50 },
+              { x: new Date(2020, 06, 1), y: 48 },
+              { x: new Date(2020, 07, 1), y: 48 },
+              { x: new Date(2020, 08, 1), y: 41, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+              { x: new Date(2020, 09, 1), y: 50 },
+              { x: new Date(2020, 10, 1), y: 48 },
+              { x: new Date(2020, 11, 1), y: 51 }
+            ]
+        }
+        ]
+    });
+chart.render();
+
+var chart = new CanvasJS.Chart("chartContainer4",
+    {
+      title:{
+        text: "Most Common Eco-Labels Checked",
+        fontFamily: "Impact",
+        fontWeight: "normal"
+      },
+
+      legend:{
+        verticalAlign: "bottom",
+        horizontalAlign: "center"
+      },
+      data: [
+      {
+        //startAngle: 45,
+       indexLabelFontSize: 20,
+       indexLabelFontFamily: "Garamond",
+       indexLabelFontColor: "darkgrey",
+       indexLabelLineColor: "darkgrey",
+       indexLabelPlacement: "outside",
+       type: "doughnut",
+       showInLegend: true,
+       dataPoints: [
+       {  y: 53.37, legendText:"4C Association 53%", indexLabel: "4C Association 53%" },
+       {  y: 35.0, legendText:"AENOR Medio Ambiente 35%", indexLabel: "AENOR Medio Ambiente 35%" },
+       {  y: 7, legendText:"Bay Area Green Business 7%", indexLabel: "Bay Area Green Business 7%" },
+       {  y: 2, legendText:"Better Cotton Initiative 2%", indexLabel: "Better Cotton Initiative 2%" },
+       {  y: 5, legendText:"BIO Hellas 5%", indexLabel: "BIO Hellas 5%" }
+       ]
+     }
+     ]
+   });
+
+    chart.render();
+  
+</script>
+<script>
+    var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+</script>
+<div>
+<h1>YOU CAN NOW REDEEM YOUR GREEN POINTS FOR A COUPON</h1>
+</div>
+
+<button id="myBtn" class="button" style="vertical-align:middle"><span>Generate Coupon </span></button>
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>A coupon has been sent to your email. Thank you for shopping green.</p>
+        </div>
+      
+      </div>
+ <script>
+     // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+ </script>     
+</html>
