@@ -92,20 +92,21 @@ function setProductScores() {
 
 function setNewPointTotal(cartScore) {
     let subtotalDiv = document.querySelectorAll("[data-name='Subtotals']");
-    console.log(subtotalDiv);
-    console.log(subtotalDiv);
+    for (let item of subtotalDiv) {
+        item.appendChild(document.createElement("br"));
+        item.appendChild(getNewBucksTotal(cartScore));
+    }
+    // subtotalDiv.appendChild(span);
+    // return span;
+}
+
+function getNewBucksTotal(cartScore) {
     let span = document.createElement("span");
     let scoreText = `Earn $${(cartScore * 0.02).toFixed(2)} GreenBucks with this purchase`;
     span.className = `badge badge-pill badge-success`;
     span.id = `altereco-earnpoints`;
     span.appendChild(document.createTextNode(scoreText))
-    for (let item of subtotalDiv) {
-        item.appendChild(document.createElement("br"))
-
-        item.appendChild(span)
-    }
-    // subtotalDiv.appendChild(span);
-    // return span;
+    return span;
 }
 
 let tabUrl = window.location.toString()
