@@ -114,7 +114,7 @@
 }
 </style>
         <h1>
-            CONGRATULATIONS! YOU'VE COLLECTED <b><u>$165 GREEN </b></u> 
+            CONGRATULATIONS! YOU'VE COLLECTED <b><u>GREEN BUCKS </b></u> 
         </h1>
         <div id="myProgress">
                 <div id="myBar"></div>
@@ -126,11 +126,16 @@
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 <body>
-<div id="chartContainer1" style="width: 50%; height: 300px;display: inline-block;"></div> <br/>
-<div id="chartContainer2" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
-<div id="chartContainer3" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
-<div id="chartContainer4" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
-<div id="chartContainer5" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
+<div id="chartContainer1" style="width: 50%; height: 300px; display:block;"></div> <br/>
+<hr>
+<div id="chartContainer2" style="width: 50%; height: 300px;"></div><br/>
+<hr>
+<div id="chartContainer3" style="width: 50%; height: 300px;"></div><br/>
+<hr>
+<div id="chartContainer4" style="width: 50%; height: 300px;"></div><br/>
+<hr>
+<div id="chartContainer5" style="width: 50%; height: 300px;"></div><br/>
+<hr>
 </body>
 <script>
     window.onload = function () {
@@ -154,6 +159,7 @@ var chart = new CanvasJS.Chart("chartContainer1", {
 		type: "spline",
 		showInLegend: true,
 		name: "Green Bucks",
+    horizontalAlign: "right",
 		yValueFormatString: "$#,##0",
 		xValueFormatString: "MMM YYYY",
 		dataPoints: [
@@ -260,7 +266,7 @@ var chart = new CanvasJS.Chart("chartContainer4",
     {
       title:{
         text: "Most Common Eco-Labels Checked",
-        fontFamily: "Impact",
+        fontFamily: "Serif",
         fontWeight: "normal"
       },
 
@@ -272,7 +278,7 @@ var chart = new CanvasJS.Chart("chartContainer4",
       {
         //startAngle: 45,
        indexLabelFontSize: 20,
-       indexLabelFontFamily: "Garamond",
+       indexLabelFontFamily: "Serif",
        indexLabelFontColor: "black",
        indexLabelLineColor: "black",
        indexLabelPlacement: "outside",
