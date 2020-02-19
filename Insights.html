@@ -1,6 +1,6 @@
 <html>
     <head>
-        <style>
+      <style>
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -51,7 +51,7 @@
   background-color: green;
 }
             h1{
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-family: sans-serif;
                 color: darkgreen;
                 text-shadow: 1ch;
                 border-style: outset;
@@ -59,8 +59,8 @@
                 font-weight: 100;
                 font-style: bold;
                 border: 2px solid green;
-                border-radius: 5px;
-                background-color: lightgrey;
+                border-radius: 25px;
+                background-color: rgb(223, 223, 223);
             }
 
             hr {
@@ -112,7 +112,7 @@
   opacity: 1;
   right: 0;
 }
-            </style>
+</style>
         <h1>
             CONGRATULATIONS! YOU'VE COLLECTED <b><u>$165 GREEN </b></u> 
         </h1>
@@ -126,44 +126,75 @@
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 <body>
-<div id="chartContainer1" style="width: 45%; height: 300px;display: inline-block;"></div> 
-<div id="chartContainer2" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
-<div id="chartContainer3" style="width: 45%; height: 300px;display: inline-block;"></div>
-<div id="chartContainer4" style="width: 45%; height: 300px;display: inline-block;"></div>
+<div id="chartContainer1" style="width: 50%; height: 300px;display: inline-block;"></div> <br/>
+<div id="chartContainer2" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
+<div id="chartContainer3" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
+<div id="chartContainer4" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
+<div id="chartContainer5" style="width: 50%; height: 300px;display: inline-block;"></div><br/>
 </body>
 <script>
-    var chart = new CanvasJS.Chart("chartContainer1",
-    {
-        animationEnabled: true,
-        title: {
-            text: "Amount Spend($)"
-        },
-        axisX: {
-            interval: 10,
-        },
-        data: [
-        {
-            type: "splineArea",
-            color: "rgba(255,12,32,.3)",
-            dataPoints: [
-                { x: new Date(2020, 00, 1), y: 250 },
-                { x: new Date(2020, 01, 1), y: 279 },
-                { x: new Date(2020, 02, 1), y: 338 },
-                { x: new Date(2020, 03, 1), y: 235 },
-                { x: new Date(2020, 04, 1), y: 602 },
-                { x: new Date(2020, 05, 1), y: 239 },
-                { x: new Date(2020, 06, 1), y: 187 },
-                { x: new Date(2020, 07, 1), y: 214 },
-                { x: new Date(2020, 08, 1), y: 728 },
-                { x: new Date(2020, 09, 1), y: 483 },
-                { x: new Date(2020, 10, 1), y: 200 },
-                { x: new Date(2020, 11, 1), y: 284 },
-                { x: new Date(2020, 12, 1), y: 239 },
-                           ]
-        },
-        ]
-    });
+    window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer1", {
+	animationEnabled: true,
+	title:{
+		text: "Spend Trend"
+	},
+	axisY :{
+		includeZero: false,
+		prefix: "$"
+	},
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		fontSize: 13
+	},
+	data: [{
+		type: "spline",
+		showInLegend: true,
+		name: "Green Bucks",
+		yValueFormatString: "$#,##0",
+		xValueFormatString: "MMM YYYY",
+		dataPoints: [
+			{ x: new Date(2019, 2), y: 30 },
+			{ x: new Date(2019, 3), y: 35 },
+			{ x: new Date(2019, 4), y: 30 },
+			{ x: new Date(2019, 5), y: 75 },
+			{ x: new Date(2019, 6), y: 60 },
+			{ x: new Date(2019, 7), y: 37 },
+			{ x: new Date(2019, 8), y: 45 },
+			{ x: new Date(2019, 9), y: 67 },
+			{ x: new Date(2019, 10), y: 75 },
+			{ x: new Date(2019, 11), y: 38 },
+			{ x: new Date(2020, 0),  y: 47 },
+			{ x: new Date(2020, 1),  y: 75 }
+		]
+ 	},
+		{
+		type: "spline", 
+		showInLegend: true,
+		yValueFormatString: "$#,##0",      
+		name: "Dollars($)",
+		dataPoints: [
+        { x: new Date(2019, 2), y: 65 },
+			{ x: new Date(2019, 3), y: 48 },
+			{ x: new Date(2019, 4), y: 35 },
+			{ x: new Date(2019, 5), y: 89 },
+			{ x: new Date(2019, 6), y: 101 },
+			{ x: new Date(2019, 7), y: 200 },
+			{ x: new Date(2019, 8), y: 52 },
+			{ x: new Date(2019, 9), y: 135 },
+			{ x: new Date(2019, 10), y: 163 },
+			{ x: new Date(2019, 11), y: 98 },
+			{ x: new Date(2020, 0),  y: 127 },
+			{ x: new Date(2020, 1),  y: 135 }
+		]
+	}]
+});
 chart.render();
+
+}
 
 var chart = new CanvasJS.Chart("chartContainer2",
     {
@@ -242,8 +273,8 @@ var chart = new CanvasJS.Chart("chartContainer4",
         //startAngle: 45,
        indexLabelFontSize: 20,
        indexLabelFontFamily: "Garamond",
-       indexLabelFontColor: "darkgrey",
-       indexLabelLineColor: "darkgrey",
+       indexLabelFontColor: "black",
+       indexLabelLineColor: "black",
        indexLabelPlacement: "outside",
        type: "doughnut",
        showInLegend: true,
@@ -259,7 +290,41 @@ var chart = new CanvasJS.Chart("chartContainer4",
    });
 
     chart.render();
-  
+
+    var chart = new CanvasJS.Chart("chartContainer5", {
+	animationEnabled: true,
+	
+	title:{
+		text:"Green Scores For Recently Bought Products"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Green Score"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: 17, label: "TaoTronics Active Noise Canceling Headphones" },
+			{ y: 22, label: "Fire 7 Tablet" },
+			{ y: 28, label: "Fire TV Stick" },
+			{ y: 18, label: "Nikon COOLPIX B500" },
+			{ y: 25, label: "Logitech G633 Artemis Spectrum" },
+			{ y: 32, label: "Royalex Emulsion Semigloss" },
+			{ y: 44, label: "Softone White Roll Towel" },
+			{ y: 21, label: "3M™ Red Buffer Pad 5100" },
+			{ y: 11, label: "Excelsior SP-500 Spray Adhesive" },
+			{ y: 16, label: "9 Round Plate" }
+		]
+	}]
+});
+chart.render();  
 </script>
 <script>
     var i = 0;
