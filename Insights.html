@@ -4,6 +4,23 @@
         <img src="C:\Users\Amardeep\Desktop\HACKATHON\Logo v1.png" height="250" width="700" class="center" loop=1>
       </div>
       <style>
+        .glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
         .center {
   display: block;
   margin-left: auto;
@@ -121,7 +138,7 @@
   right: 0;
 }
 </style>
-         <h1> YOU NOW OWN $75 WORTH OF GREEN BUCKS THAT CAN BE REDEEMED</h1>
+         <h1 class="glow"> YOU NOW OWN $75 WORTH OF GREEN BUCKS THAT CAN BE REDEEMED</h1>
         </h1>
         <hr>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -358,6 +375,7 @@ function move() {
 </div>
 
 <button id="myBtn" class="button" style="vertical-align:middle"><span>Generate Coupon </span></button>
+
 <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -399,5 +417,6 @@ window.onclick = function(event) {
  <div>
    <p align="right">Created by</p>
 <img src="C:\Users\Amardeep\Desktop\HACKATHON\Logo v1.png" height="75" width="75" align="right">
+
  </div>
 </html>
