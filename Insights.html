@@ -5,11 +5,11 @@
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="cart.css">
   <link rel="stylesheet" type="text/css" href="navigation.css">
-  <hr>
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
+<img src="https://i.ibb.co/1mq2mfc/Logo.png" height="100px" class="center" margin-top="15px">
+
 <div>
-  <img src="https://i.ibb.co/1mq2mfc/Logo.png" height="100px" class="center" margin-top="15px">
 </div>
 <body>
   <div id="navigation"> </div>
@@ -139,49 +139,74 @@
 
   var chart = new CanvasJS.Chart("chartContainer3",
     {
-      animationEnabled: true,
-      title: {
-        text: "Number of Products Purchased Monthly",
-        fontFamily: "Montserrat",
-
-      },
-      axisX: {
-        valueFormatString: "MMM",
-        interval: 1,
-        intervalType: "month",
-        fontFamily: "Montserrat",
-
-      },
-      axisY: {
-        includeZero: false,
-        fontFamily: "Montserrat",
-
+      title:{
+      text: "Multi-Series Insights",
+      fontFamily: "Montserrat",
       },
       data: [
-        {
-          type: "line",
-          fontFamily: "Montserrat",
-
-          dataPoints: [
-            { x: new Date(2020, 00, 1), y: 45 },
-            { x: new Date(2020, 01, 1), y: 41 },
-            { x: new Date(2020, 02, 1), y: 52, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
-            { x: new Date(2020, 03, 1), y: 46 },
-            { x: new Date(2020, 04, 1), y: 45 },
-            { x: new Date(2020, 05, 1), y: 50 },
-            { x: new Date(2020, 06, 1), y: 48 },
-            { x: new Date(2020, 07, 1), y: 48 },
-            { x: new Date(2020, 08, 1), y: 41, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
-            { x: new Date(2020, 09, 1), y: 50 },
-            { x: new Date(2020, 10, 1), y: 48 },
-            {
-              x: new Date(2020, 11, 1), y: 51, fontFamily: "Montserrat",
-            }
-          ]
-        }
+      {        
+        type: "line",
+         showInLegend: true,
+		name: "GreenRating",
+        dataPoints: [
+        { x: new Date(2019, 2), y: 0 },
+			{ x: new Date(2019, 3), y: 100 },
+			{ x: new Date(2019, 4), y: 153 },
+			{ x: new Date(2019, 5), y: 189 },
+			{ x: new Date(2019, 6), y: 265 },
+			{ x: new Date(2019, 7), y: 301 },
+			{ x: new Date(2019, 8), y: 377 },
+			{ x: new Date(2019, 9), y: 429 },
+			{ x: new Date(2019, 10), y: 489 },
+			{ x: new Date(2019, 11), y: 560 },
+			{ x: new Date(2020, 0),  y: 628 },
+			{ x: new Date(2020, 1),  y: 770 }
+      
+        ]
+      },
+        {        
+        type: "line",
+            showInLegend: true,
+		name: "Green Bucks Spent",
+        dataPoints: [
+        { x: new Date(2019, 2), y: 10 },
+			{ x: new Date(2019, 3), y: 15 },
+			{ x: new Date(2019, 4), y: 16 },
+			{ x: new Date(2019, 5), y: 25 },
+			{ x: new Date(2019, 6), y: 27 },
+			{ x: new Date(2019, 7), y: 35 },
+			{ x: new Date(2019, 8), y: 23 },
+			{ x: new Date(2019, 9), y: 35 },
+			{ x: new Date(2019, 10), y: 58 },
+			{ x: new Date(2019, 11), y: 56 },
+			{ x: new Date(2020, 0),  y: 61 },
+			{ x: new Date(2020, 1),  y: 60 }  
+      
+        ]
+      },
+        {        
+        type: "line",
+        showInLegend: true,
+		name: "No. of Products Bought",
+        dataPoints: [
+      { x: new Date(2019, 2), y: 65 },
+			{ x: new Date(2019, 3), y: 45 },
+			{ x: new Date(2019, 4), y: 51 },
+			{ x: new Date(2019, 5), y: 52 },
+			{ x: new Date(2019, 6), y: 35 },
+			{ x: new Date(2019, 7), y: 37 },
+			{ x: new Date(2019, 8), y: 43 },
+			{ x: new Date(2019, 9), y: 17 },
+			{ x: new Date(2019, 10), y: 25 },
+			{ x: new Date(2019, 11), y: 29 },
+			{ x: new Date(2020, 0),  y: 31 },
+			{ x: new Date(2020, 1),  y: 38 }
+      
+        ]
+      }
       ]
     });
-  chart.render();
+    chart.render();
 
   var chart = new CanvasJS.Chart("chartContainer4",
     {
@@ -218,63 +243,43 @@
   chart.render();
 
   var chart = new CanvasJS.Chart("chartContainer5", {
-    animationEnabled: true,
+    animationEnabled: true});
 
-    title: {
-      text: "Green Scores For Recently Purchased Products",
-      fontFamily: "Montserrat",
-
-    },
-    axisX: {
-      interval: 1
-    },
-    axisY2: {
-      interlacedColor: "rgba(1,77,101,.2)",
-      gridColor: "rgba(1,77,101,.1)",
-      title: "Green Score"
-    },
-    data: [{
-      type: "bar",
-      name: "companies",
-      axisYType: "secondary",
-      color: "#014D65",
-      dataPoints: [
-        { y: 17, label: "TaoTronics Active Noise Canceling Headphones" },
-        { y: 22, label: "Fire 7 Tablet" },
-        { y: 28, label: "Fire TV Stick" },
-        { y: 18, label: "Nikon COOLPIX B500" },
-        { y: 25, label: "Logitech G633 Spectrum" },
-        { y: 32, label: "Royalex Emulsion Semigloss" },
-        { y: 44, label: "Softone White Roll Towel" },
-        { y: 21, label: "3M™ Red Buffer Pad 5100" },
-        { y: 11, label: "Excelsior Adhesive" },
-        { y: 16, label: "9 Round Plate" }
-      ]
-    }]
-  });
-  chart.render();  
-</script>
-<script>
-  var i = 0;
-  function move() {
-    if (i == 0) {
-      i = 1;
-      var elem = document.getElementById("myBar");
-      var width = 1;
-      var id = setInterval(frame, 10);
-      function frame() {
-        if (width >= 100) {
-          clearInterval(id);
-          i = 0;
-        } else {
-          width++;
-          elem.style.width = width + "%";
-        }
-      }
-    }
-  }
-</script>
-<script>
+  var chart = new CanvasJS.Chart("chartContainer5", {
+	animationEnabled: true,
+	
+	title:{
+    text:"Green Scores For Recently Purchased Products",
+    fontFamily: "Montserrat",
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Green Score"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: 17, label: "TaoTronics Active Noise Canceling Headphones" },
+			{ y: 22, label: "Fire 7 Tablet" },
+			{ y: 28, label: "Fire TV Stick" },
+			{ y: 18, label: "Nikon COOLPIX B500" },
+			{ y: 25, label: "Logitech G633 Spectrum" },
+			{ y: 32, label: "Royalex Emulsion Semigloss" },
+			{ y: 44, label: "Softone White Roll Towel" },
+			{ y: 21, label: "3M™ Red Buffer Pad 5100" },
+			{ y: 11, label: "Excelsior Adhesive" },
+			{ y: 16, label: "9 Round Plate" }
+		]
+	}]
+})
+chart.render();  
   // Get the modal
   var modal = document.getElementById("myModal");
 
@@ -305,4 +310,18 @@
 <div>
 </div>
 
+ <div>
+ </div>
+ <script>
+  const gra = function(min, max) {
+    return Math.random() * (max - min) + min;
+}
+const init = function(){
+    let items = document.querySelectorAll('section');
+    for (let i = 0; i < items.length; i++){
+        items[i].style.background = randomColor({luminosity: 'light'});
+    }
+    cssScrollSnapPolyfill()
+}
+</script> 
 </html>
