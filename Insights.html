@@ -1,40 +1,107 @@
 <html>
     <head>
+      <script>
+        $(window).scroll(function() {
+    if ($(this).scrollTop() > 250){  
+        $('header').addClass("sticky");
+    }
+    else{
+        $('header').removeClass("sticky");
+    }
+});
+      </script>
+        <style>
+ header {
+  -webkit-transition: all 0.4s ease;
+ 		transition: all 0.4s ease;
+     height: 15vh;
+     scroll-snap-align: none;
+ }
+.banner{
+  height: 15vh;
+  scroll-snap-align: start;
+}
+
+          * {
+    box-sizing: border-box;
+}
+.Top{
+  height: 50vh;
+  scroll-snap-align: start;
+}
+html {
+    font-family: sans-serif;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+}
+.chart {
+    border-bottom: 1px solid white;
+    padding: 1rem;
+    height: 70vh;
+    scroll-snap-align: start;
+    text-align: center;
+    position: relative;
+}
+
+
+
+
+            body {
+              background: linear-gradient(-45deg,#b8cc91, #a7dbaf, #94ccb0, #ffffff);
+              background-size: 400% 400%;
+              animation: gradient 15s ease infinite;
+            }
+            
+            @keyframes gradient {
+              0% {
+                background-position: 0% 50%;
+              }
+              50% {
+                background-position: 100% 50%;
+              }
+              100% {
+                background-position: 0% 50%;
+              }
+            }
+            </style>
+      
       <link rel="stylesheet" type="text/css" href="insights.css">
       <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="cart.css">
-
+      <header>
+       
       <div>
         <img src="https://i.ibb.co/1mq2mfc/Logo.png" height="100px" class="center" margin-top="15px">
       </div>
-        </h1>
+    
+        </header>
         <hr>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <body>
-  <div class="greenBucksInsights"> 
+  <div id="banner" class="greenBucksInsights"> 
     <h4 class="h4Insights"> Green Rating </h4> 
       <span class ="greenScoreDiv badge badge-success cartScoreText"> 770 / 1000</span> 
   
     <h4 class="addMTop"> You're a deep green shopper! </h4> 
 </div>
-
-  <div class="greenBucksInsights"> 
+  <div id="banner" class="greenBucksInsights"> 
     <h4> You have earned </h4> 
       <span class ="greenScoreDiv badge badge-success cartScoreText"> $75 </span> 
     <h4 class="addMTop"> Green Bucks </h4> 
 </div>
-
-<div id="chartContainer1" style="width: 50%; height: 300px; display:block;"></div> <br/>
-<hr>
-<div id="chartContainer2" style="width: 50%; height: 300px;"></div><br/>
-<hr>
-<div id="chartContainer3" style="width: 50%; height: 300px;"></div><br/>
-<hr>
-<div id="chartContainer4" style="width: 50%; height: 300px;"></div><br/>
-<hr>
-<div id="chartContainer5" style="width: 50%; height: 300px;"></div><br/>
+<section id="chart">
+<div id="chartContainer1" style="width: 50%; height: 300px;"></div></section> <br/>
+<hr><section id="chart">
+<div id="chartContainer2" style="width: 50%; height: 300px;"></div></section><br/>
+<hr><section id="chart">
+<div id="chartContainer3" style="width: 50%; height: 300px;"></div></section><br/>
+<hr><section id="chart">
+<div id="chartContainer4" style="width: 50%; height: 300px;"></div></section><br/>
+<hr><section id="chart">
+<div id="chartContainer5" style="width: 50%; height: 300px;"></div></section><br/>
 <hr>
 </body>
 <script>
@@ -61,7 +128,7 @@ var chart = new CanvasJS.Chart("chartContainer1", {
 		type: "spline",
 		showInLegend: true,
 		name: "Green Bucks",
-    horizontalAlign: "right",
+    horizontalAlign: "right",    
 		yValueFormatString: "$#,##0",
 		xValueFormatString: "MMM YYYY",
 		dataPoints: [
@@ -132,48 +199,73 @@ chart.render();
 
 var chart = new CanvasJS.Chart("chartContainer3",
     {
-        animationEnabled: true,
-        title: {
-            text: "Number of Products Purchased Monthly",
-            fontFamily: "Montserrat",
-
-        },
-        axisX: {
-            valueFormatString: "MMM",
-            interval: 1,
-            intervalType: "month",
-            fontFamily: "Montserrat",
-
-        },
-        axisY: {
-            includeZero: false,
-            fontFamily: "Montserrat",
-
-        },
-        data: [
-        {
-          type: "line",
-          fontFamily: "Montserrat",
-
-          dataPoints: [
-              { x: new Date(2020, 00, 1), y: 45 },
-              { x: new Date(2020, 01, 1), y: 41 },
-              { x: new Date(2020, 02, 1), y: 52, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
-              { x: new Date(2020, 03, 1), y: 46 },
-              { x: new Date(2020, 04, 1), y: 45 },
-              { x: new Date(2020, 05, 1), y: 50 },
-              { x: new Date(2020, 06, 1), y: 48 },
-              { x: new Date(2020, 07, 1), y: 48 },
-              { x: new Date(2020, 08, 1), y: 41, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
-              { x: new Date(2020, 09, 1), y: 50 },
-              { x: new Date(2020, 10, 1), y: 48 },
-              { x: new Date(2020, 11, 1), y: 51,           fontFamily: "Montserrat",
- }
-            ]
-        }
+      title:{
+      text: "Multi-Series Insights"  
+      },
+      data: [
+      {        
+        type: "line",
+         showInLegend: true,
+		name: "GreenRating",
+        dataPoints: [
+        { x: new Date(2019, 2), y: 0 },
+			{ x: new Date(2019, 3), y: 100 },
+			{ x: new Date(2019, 4), y: 153 },
+			{ x: new Date(2019, 5), y: 189 },
+			{ x: new Date(2019, 6), y: 265 },
+			{ x: new Date(2019, 7), y: 301 },
+			{ x: new Date(2019, 8), y: 377 },
+			{ x: new Date(2019, 9), y: 429 },
+			{ x: new Date(2019, 10), y: 489 },
+			{ x: new Date(2019, 11), y: 560 },
+			{ x: new Date(2020, 0),  y: 628 },
+			{ x: new Date(2020, 1),  y: 770 }
+      
         ]
+      },
+        {        
+        type: "line",
+            showInLegend: true,
+		name: "Green Bucks Spent",
+        dataPoints: [
+        { x: new Date(2019, 2), y: 10 },
+			{ x: new Date(2019, 3), y: 15 },
+			{ x: new Date(2019, 4), y: 16 },
+			{ x: new Date(2019, 5), y: 25 },
+			{ x: new Date(2019, 6), y: 27 },
+			{ x: new Date(2019, 7), y: 35 },
+			{ x: new Date(2019, 8), y: 23 },
+			{ x: new Date(2019, 9), y: 35 },
+			{ x: new Date(2019, 10), y: 58 },
+			{ x: new Date(2019, 11), y: 56 },
+			{ x: new Date(2020, 0),  y: 61 },
+			{ x: new Date(2020, 1),  y: 60 }  
+      
+        ]
+      },
+        {        
+        type: "line",
+        showInLegend: true,
+		name: "No. of Products Bought",
+        dataPoints: [
+      { x: new Date(2019, 2), y: 65 },
+			{ x: new Date(2019, 3), y: 45 },
+			{ x: new Date(2019, 4), y: 51 },
+			{ x: new Date(2019, 5), y: 52 },
+			{ x: new Date(2019, 6), y: 35 },
+			{ x: new Date(2019, 7), y: 37 },
+			{ x: new Date(2019, 8), y: 43 },
+			{ x: new Date(2019, 9), y: 17 },
+			{ x: new Date(2019, 10), y: 25 },
+			{ x: new Date(2019, 11), y: 29 },
+			{ x: new Date(2020, 0),  y: 31 },
+			{ x: new Date(2020, 1),  y: 38 }
+      
+        ]
+      }
+      ]
     });
-chart.render();
+    chart.render();
 
 var chart = new CanvasJS.Chart("chartContainer4",
     {
@@ -245,6 +337,7 @@ var chart = new CanvasJS.Chart("chartContainer4",
 	}]
 });
 chart.render();  
+
 </script>
 <script>
     var i = 0;
@@ -296,4 +389,26 @@ window.onclick = function(event) {
 
  <div>
  </div>
+ <script>const gra = function(min, max) {
+    return Math.random() * (max - min) + min;
+}
+const init = function(){
+    let items = document.querySelectorAll('section');
+    for (let i = 0; i < items.length; i++){
+        items[i].style.background = randomColor({luminosity: 'light'});
+    }
+    cssScrollSnapPolyfill()
+}
+init();</script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+ <script>
+   $(window).scroll(function() {
+    if ($(this).scrollTop() > 250){  
+        $('header').addClass("sticky");
+    }
+    else{
+        $('header').removeClass("sticky");
+    }
+});
+ </script>
 </html>
