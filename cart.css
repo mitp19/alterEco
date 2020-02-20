@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+.alternativeProduct {
+    margin-top: 5px;
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: grey;
+    padding: 5px;
+    /* background-color: lightgreen; */
+    /* border-radius: 7px; */
+}
+
+.card-header {
+    padding: 5px;
+}
+
+.cardImage {
+    margin: 10px 0px;
+}
+
+.viewProduct { 
+    color: black !important;
+    background: #f0c14b;
+    border-color: black;
+    width:200px;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: 1px;
+    /* margin:10px 5px; */
+}
+.viewProduct:visited {
+    color: black !important;
+}
+
+.cartScoreText {
+    font-size: 26px;
+}
+
+.boxShadow {
+    box-shadow: 0px 1px;
+}
+
+
+.card-header {
+    font-size: 16px;
+}
+
+.greenScore {
+    color: #3fa14e;
+    font-weight: 400;
+    font-family: Montserrat
+}
+
+.cartCard {
+    background-color: #f3f3f3;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #dddddd;
+    padding: 7px;
+    display: inline-block;
+
+}
+
+.applyCoupon {
+    margin-left: 15px;
+    width: auto;
+    display: inline-block;
+}
+
+.applyCoupon:hover {
+    cursor: pointer;
+}
+
+.greenBucks {
+    color: #3fa14e;
+    font-family: Montserrat;
+    font-weight: 700;
+}

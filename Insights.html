@@ -1,149 +1,31 @@
 <html>
     <head>
+      <link rel="stylesheet" type="text/css" href="insights.css">
+      <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="cart.css">
+
       <div>
-        <img src="C:\Users\Amardeep\Desktop\HACKATHON\Logo v1.png" height="250" width="700" class="center" loop=1>
+        <img src="https://i.ibb.co/1mq2mfc/Logo.png" height="100px" class="center" margin-top="15px">
       </div>
-      <style>
-        .glow {
-  font-size: 80px;
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
-}
-        .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
- }
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-            #myProgress {
-  width: 100%;
-  background-color: grey;
-}
-
-#myBar {
-  width: 50%;
-  height: 30px;
-  background-color: green;
-}
-            h1{
-                font-family: sans-serif;
-                color: darkgreen;
-                text-shadow: 1ch;
-                border-style: outset;
-                text-align: center;
-                font-weight: 100;
-                font-style: bold;
-                border: 2px solid green;
-                border-radius: 25px;
-                background-color: rgb(223, 223, 223);
-            }
-
-            hr {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-  
-}
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-</style>
-         <h1 class="glow"> YOU NOW OWN $75 WORTH OF GREEN BUCKS THAT CAN BE REDEEMED</h1>
         </h1>
         <hr>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
+
 <body>
+  <div class="greenBucksInsights"> 
+    <h4 class="h4Insights"> Green Rating </h4> 
+      <span class ="greenScoreDiv badge badge-success cartScoreText"> 770 / 1000</span> 
+  
+    <h4 class="addMTop"> You're a deep green shopper! </h4> 
+</div>
+
+  <div class="greenBucksInsights"> 
+    <h4> You have earned </h4> 
+      <span class ="greenScoreDiv badge badge-success cartScoreText"> $75 </span> 
+    <h4 class="addMTop"> Green Bucks </h4> 
+</div>
+
 <div id="chartContainer1" style="width: 50%; height: 300px; display:block;"></div> <br/>
 <hr>
 <div id="chartContainer2" style="width: 50%; height: 300px;"></div><br/>
@@ -161,7 +43,9 @@
 var chart = new CanvasJS.Chart("chartContainer1", {
 	animationEnabled: true,
 	title:{
-		text: "Spend Trend"
+    text: "Green vs. Actual Monthly Consumption",
+    fontFamily: "Montserrat",
+
 	},
 	axisY :{
 		includeZero: false,
@@ -224,7 +108,9 @@ var chart = new CanvasJS.Chart("chartContainer2",
     {
         animationEnabled: true,
         title: {
-            text: "Items Bought(Type) by Percent",
+            text: "($) Spending by Category",
+            fontFamily: "Montserrat",
+
         },
         data: [
         {
@@ -248,19 +134,27 @@ var chart = new CanvasJS.Chart("chartContainer3",
     {
         animationEnabled: true,
         title: {
-            text: "Number of Products Bought"
+            text: "Number of Products Purchased Monthly",
+            fontFamily: "Montserrat",
+
         },
         axisX: {
             valueFormatString: "MMM",
             interval: 1,
-            intervalType: "month"
+            intervalType: "month",
+            fontFamily: "Montserrat",
+
         },
         axisY: {
-            includeZero: false
+            includeZero: false,
+            fontFamily: "Montserrat",
+
         },
         data: [
         {
           type: "line",
+          fontFamily: "Montserrat",
+
           dataPoints: [
               { x: new Date(2020, 00, 1), y: 45 },
               { x: new Date(2020, 01, 1), y: 41 },
@@ -273,7 +167,8 @@ var chart = new CanvasJS.Chart("chartContainer3",
               { x: new Date(2020, 08, 1), y: 41, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
               { x: new Date(2020, 09, 1), y: 50 },
               { x: new Date(2020, 10, 1), y: 48 },
-              { x: new Date(2020, 11, 1), y: 51 }
+              { x: new Date(2020, 11, 1), y: 51,           fontFamily: "Montserrat",
+ }
             ]
         }
         ]
@@ -283,9 +178,8 @@ chart.render();
 var chart = new CanvasJS.Chart("chartContainer4",
     {
       title:{
-        text: "Most Common Eco-Labels Checked",
-        fontFamily: "Serif",
-        fontWeight: "normal"
+        text: "Eco-Labels of Most Commonly Purchased Products",
+        fontFamily: "Montserrat",
       },
 
       legend:{
@@ -319,7 +213,9 @@ var chart = new CanvasJS.Chart("chartContainer4",
 	animationEnabled: true,
 	
 	title:{
-		text:"Green Scores For Recently Bought Products"
+    text:"Green Scores For Recently Purchased Products",
+    fontFamily: "Montserrat",
+
 	},
 	axisX:{
 		interval: 1
@@ -339,11 +235,11 @@ var chart = new CanvasJS.Chart("chartContainer4",
 			{ y: 22, label: "Fire 7 Tablet" },
 			{ y: 28, label: "Fire TV Stick" },
 			{ y: 18, label: "Nikon COOLPIX B500" },
-			{ y: 25, label: "Logitech G633 Artemis Spectrum" },
+			{ y: 25, label: "Logitech G633 Spectrum" },
 			{ y: 32, label: "Royalex Emulsion Semigloss" },
 			{ y: 44, label: "Softone White Roll Towel" },
 			{ y: 21, label: "3M™ Red Buffer Pad 5100" },
-			{ y: 11, label: "Excelsior SP-500 Spray Adhesive" },
+			{ y: 11, label: "Excelsior Adhesive" },
 			{ y: 16, label: "9 Round Plate" }
 		]
 	}]
@@ -370,21 +266,6 @@ function move() {
   }
 }
 </script>
-<div>
-<h1>YOU CAN NOW REDEEM YOUR GREEN POINTS FOR A COUPON</h1>
-</div>
-
-<button id="myBtn" class="button" style="vertical-align:middle"><span>Generate Coupon </span></button>
-
-<div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>A coupon has been sent to your email. Thank you for shopping green.</p>
-        </div>
-      
-      </div>
  <script>
      // Get the modal
 var modal = document.getElementById("myModal");
@@ -393,7 +274,6 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -415,8 +295,5 @@ window.onclick = function(event) {
  </script>     
 
  <div>
-   <p align="right">Created by</p>
-<img src="C:\Users\Amardeep\Desktop\HACKATHON\Logo v1.png" height="75" width="75" align="right">
-
  </div>
 </html>

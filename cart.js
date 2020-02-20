@@ -5,23 +5,33 @@ function setCartScore() {
     if (total > 0) {
         let cartTitle = document.querySelector("div.a-row.sc-cart-header.sc-compact-bottom");
         let cartScore = Math.floor(total / count); 
+        let img = document.createElement("img");
+        img.src = "https://i.ibb.co/1mq2mfc/Logo.png";
+        img.style.height = "35px";
+        let div = document.createElement("div");
+        div.className = "greenScoreDiv cartCard";
 
-        let h3 = document.createElement("h3");
-        h3.appendChild(document.createTextNode("alterEco Cart Score: "));
-        
-        h3.style.color = ""
+        div.appendChild(img);
+        div.appendChild(document.createElement("br"));
+        let h2 = document.createElement("h2")
+        h2.appendChild(document.createTextNode("Green Score"))
+        h2.className="greenScore"
+        div.appendChild(h2);
+        // h3.appendChild(document.createTextNode("Green Score: "));
+        div.style.color = ""
         let span = document.createElement("span");
         span.appendChild(document.createTextNode(cartScore));
         let badgeColor = getBadgeColor(cartScore);
-        span.className = `badge badge-${badgeColor}`;
+        span.className = `badge badge-${badgeColor} cartScoreText`;
 
-        h3.appendChild(span);
-        cartTitle.append(h3);
+        div.appendChild(span);
+        cartTitle.append(div);
 
         console.log("CART TITLE", cartTitle, total, count)
         setNewPointTotal(cartScore);
     }
 }
+
 function createScoreBadge(itemId) {
     let span = document.createElement("span");
     let score = getProductScore(itemId);
@@ -33,6 +43,60 @@ function createScoreBadge(itemId) {
     span.id = `altereco-score`;
     span.appendChild(document.createTextNode(scoreText))
     return span;
+}
+
+function checkRecommendations(itemId, cartItem) {
+    let itemRecomm = {
+        "B00CLVU0C4":{
+            productName: "EcoVessel Water Bottle",
+            img: "https://m.media-amazon.com/images/I/61bhmW6mjxL._AC_AA180_.jpg",
+            linkAddress: "https://www.amazon.ca/gp/product/B019K72FTC/ref=ox_sc_act_title_1?smid=A3DWYIK6Y9EEQB&psc=1"
+        }
+    }
+
+    if (itemId in itemRecomm) {
+        let div = document.createElement("div");
+        div.className = "alternativeProduct card"
+        // Image: 
+        let img = document.createElement("img");
+        img.className = "cardImage";
+        img.src = itemRecomm[itemId].img
+
+        // Header: 
+        let h5 = document.createElement("h5");
+        h5.className = "card-header"
+        h5.appendChild(document.createTextNode("alterEco alternative"));
+
+        let divBody = document.createElement("div");
+        divBody.className = "card-body";
+        let p = document.createElement("p");
+        p.appendChild(document.createTextNode(itemRecomm[itemId].productName))
+        // h5.appendChild(document.createTextNode(itemRecomm[itemId].productName));
+
+        let button = document.createElement("a");
+        button.href = itemRecomm[itemId].linkAddress;
+        button.className = "btn btn-primary"
+        button.append(document.createTextNode("View Product"))
+        button.className = "viewProduct";
+        divBody.appendChild(button)
+
+
+        div.appendChild(h5);
+        div.appendChild(img);
+        div.appendChild(divBody);
+
+        cartItem.appendChild(div);
+        // <a href="#" class="btn btn-primary">Go somewhere</a>
+
+    }
+{/* <div class="media">
+  <img src="..." class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Media heading</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div> */}
+
 }
 
 function getBadgeColor(score) {
@@ -52,22 +116,18 @@ function addEventListenerToDelete() {
             setProductScores();
         })
     }
-
 }
-
 
 function getProductScore(itemId) {
     console.log("ITEMID", itemId);
     let itemScoreMap = {
-        "C95b35eaf-2c48-4697-b43f-8556f12cb8c8": 17,
-        "Ca1824aec-1c2a-4e84-b8e6-d43a6b4a6eac": 72, 
-        "Cbdbd7706-f033-43a3-874e-7def3eba3eff": 41,
-        "C9ce99eb8-3ae9-4250-82ba-d48b70bbdbfe": 4,
-        "C55640f31-22ba-4ab6-a5fa-eece71103112": 98,
-        "Cd462e721-3817-4241-ae99-d347c2d72866": 98
+        "B00CLVU0C4": 10,
+        "B07VD5LYMW": 45,
+        "B07JQP2C3X": 78,
+        "B019K72FTC": 98,
+        "B07VD5LYMW": 45
     }
     if (itemId in itemScoreMap) {
-        console.log("FOUND KEY")
         return itemScoreMap[itemId];
     }
     else {
@@ -81,10 +141,11 @@ function setProductScores() {
     for (let item of priceDiv) {
         if (!item.className.includes("a-spacing-top-micro")) {
             let itemDetails = item.parentNode.parentNode.parentNode;
-            let itemId = itemDetails.getAttribute('data-itemid');
+            let itemId = itemDetails.getAttribute('data-asin');
             console.log(itemId)
             // console.log("PARET", item.parentNode.parentNode.parentNode)
             item.appendChild(createScoreBadge(itemId));
+            checkRecommendations(itemId, item);
         }
     }
 }
@@ -117,6 +178,8 @@ if (tabUrl.match(regex)) {
     // let cartItems = cart.querySelectorAll("sc-product-price")
     setProductScores();
     setCartScore(); 
+    setApplyCoupon();
+
     let form = document.getElementById("activeCartViewForm")
 
     let formItems = document.querySelectorAll("span.a-size-small.sc-action-delete");
@@ -131,4 +194,38 @@ if (tabUrl.match(regex)) {
 
     form.addEventListener("change", () => {console.log("FORM CHANGE")})
     addEventListenerToDelete();
+}
+
+
+function setApplyCoupon() {
+    if (total > 0) {
+        let cartTitle = document.querySelector("div.a-row.sc-cart-header.sc-compact-bottom");
+        let cartScore = Math.floor(total / count);
+        console.log(cartScore);
+        // let img = document.createElement("img");
+        // img.src = "https://i.ibb.co/1mq2mfc/Logo.png";
+        // img.style.height = "35px";
+        let div = document.createElement("div");
+        // div.appendChild(img);
+        div.className = "applyCoupon cartCard";
+        let h2 = document.createElement("h2")
+        h2.className="greenBucks"
+        div.appendChild(h2);
+        let span = document.createElement("span");
+
+        if (cartScore > 70) {
+            span.appendChild(document.createTextNode("Use $10.00"));
+            let badgeColor = getBadgeColor(cartScore);
+            span.className = `badge badge-success cartScoreText boxShadow`;
+            h2.appendChild(document.createTextNode(`Apply Green Bucks`))
+            div.appendChild(document.createElement("br"));
+            div.appendChild(span);
+            cartTitle.append(div);
+
+        } 
+
+
+        console.log("CART TITLE", cartTitle, total, count)
+        // setNewPointTotal(cartScore);
+    }
 }
