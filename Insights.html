@@ -1,299 +1,308 @@
 <html>
-    <head>
-      <link rel="stylesheet" type="text/css" href="insights.css">
-      <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="cart.css">
 
-      <div>
-        <img src="https://i.ibb.co/1mq2mfc/Logo.png" height="100px" class="center" margin-top="15px">
-      </div>
-        </h1>
-        <hr>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<head>
+  <link rel="stylesheet" type="text/css" href="insights.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="cart.css">
+  <link rel="stylesheet" type="text/css" href="navigation.css">
+  <hr>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
-
+<div>
+  <img src="https://i.ibb.co/1mq2mfc/Logo.png" height="100px" class="center" margin-top="15px">
+</div>
 <body>
-  <div class="greenBucksInsights"> 
-    <h4 class="h4Insights"> Green Rating </h4> 
-      <span class ="greenScoreDiv badge badge-success cartScoreText"> 770 / 1000</span> 
-  
-    <h4 class="addMTop"> You're a deep green shopper! </h4> 
-</div>
+  <div id="navigation"> </div>
 
-  <div class="greenBucksInsights"> 
-    <h4> You have earned </h4> 
-      <span class ="greenScoreDiv badge badge-success cartScoreText"> $75 </span> 
-    <h4 class="addMTop"> Green Bucks </h4> 
-</div>
+  <hr> 
+  <div class="greenBucksInsights">
+    <h4 class="h4Insights"> Green Rating </h4>
+    <span class="greenScoreDiv badge badge-success cartScoreText"> 770 / 1000</span>
 
-<div id="chartContainer1" style="width: 50%; height: 300px; display:block;"></div> <br/>
-<hr>
-<div id="chartContainer2" style="width: 50%; height: 300px;"></div><br/>
-<hr>
-<div id="chartContainer3" style="width: 50%; height: 300px;"></div><br/>
-<hr>
-<div id="chartContainer4" style="width: 50%; height: 300px;"></div><br/>
-<hr>
-<div id="chartContainer5" style="width: 50%; height: 300px;"></div><br/>
-<hr>
+    <h4 class="addMTop"> You're a deep green shopper! </h4>
+  </div>
+
+  <div class="greenBucksInsights">
+    <h4> You have earned </h4>
+    <span class="greenScoreDiv badge badge-success cartScoreText"> $75 </span>
+    <h4 class="addMTop"> Green Bucks </h4>
+  </div>
+
+  <hr>
+
+  <div id="chartContainer1" style="width: 50%; height: 300px; display:block;"></div> <br />
+  <hr>
+  <div id="chartContainer2" style="width: 50%; height: 300px;"></div><br />
+  <hr>
+  <div id="chartContainer3" style="width: 50%; height: 300px;"></div><br />
+  <hr>
+  <div id="chartContainer4" style="width: 50%; height: 300px;"></div><br />
+  <hr>
+  <div id="chartContainer5" style="width: 50%; height: 300px;"></div><br />
+  <hr>
+
+  <script type="text/javascript" src="navigation.js"></script>
+
 </body>
 <script>
-    window.onload = function () {
+  window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer1", {
-	animationEnabled: true,
-	title:{
-    text: "Green vs. Actual Monthly Consumption",
-    fontFamily: "Montserrat",
+    var chart = new CanvasJS.Chart("chartContainer1", {
+      animationEnabled: true,
+      title: {
+        text: "Green vs. Actual Monthly Consumption",
+        fontFamily: "Montserrat",
 
-	},
-	axisY :{
-		includeZero: false,
-		prefix: "$"
-	},
-	toolTip: {
-		shared: true
-	},
-	legend: {
-		fontSize: 13
-	},
-	data: [{
-		type: "spline",
-		showInLegend: true,
-		name: "Green Bucks",
-    horizontalAlign: "right",
-		yValueFormatString: "$#,##0",
-		xValueFormatString: "MMM YYYY",
-		dataPoints: [
-			{ x: new Date(2019, 2), y: 30 },
-			{ x: new Date(2019, 3), y: 35 },
-			{ x: new Date(2019, 4), y: 30 },
-			{ x: new Date(2019, 5), y: 75 },
-			{ x: new Date(2019, 6), y: 60 },
-			{ x: new Date(2019, 7), y: 37 },
-			{ x: new Date(2019, 8), y: 45 },
-			{ x: new Date(2019, 9), y: 67 },
-			{ x: new Date(2019, 10), y: 75 },
-			{ x: new Date(2019, 11), y: 38 },
-			{ x: new Date(2020, 0),  y: 47 },
-			{ x: new Date(2020, 1),  y: 75 }
-		]
- 	},
-		{
-		type: "spline", 
-		showInLegend: true,
-		yValueFormatString: "$#,##0",      
-		name: "Dollars($)",
-		dataPoints: [
-        { x: new Date(2019, 2), y: 65 },
-			{ x: new Date(2019, 3), y: 48 },
-			{ x: new Date(2019, 4), y: 35 },
-			{ x: new Date(2019, 5), y: 89 },
-			{ x: new Date(2019, 6), y: 101 },
-			{ x: new Date(2019, 7), y: 200 },
-			{ x: new Date(2019, 8), y: 52 },
-			{ x: new Date(2019, 9), y: 135 },
-			{ x: new Date(2019, 10), y: 163 },
-			{ x: new Date(2019, 11), y: 98 },
-			{ x: new Date(2020, 0),  y: 127 },
-			{ x: new Date(2020, 1),  y: 135 }
-		]
-	}]
-});
-chart.render();
-
-}
-
-var chart = new CanvasJS.Chart("chartContainer2",
-    {
-        animationEnabled: true,
-        title: {
-            text: "($) Spending by Category",
-            fontFamily: "Montserrat",
-
-        },
-        data: [
-        {
-            type: "pie",
-            showInLegend: true,
-            dataPoints: [
-                { y: 21, legendText: "Electronics", indexLabel: "Electronics" },
-                { y: 11, legendText: "Food", indexLabel: "Food" },
-                { y: 9, legendText: "Safety/Hygiene", indexLabel: "Safety/Hygiene" },
-                { y: 11, legendText: "Home & Garden", indexLabel: "Home & Garden" },
-                { y: 10, legendText: "Pet Supplies", indexLabel: "Pet Supplies" },
-                { y: 24, legendText: "Outdoor", indexLabel: "Outdoor" },
-                { y: 14, legendText: "Office Products", indexLabel: "Office Products" }
-            ]
-        },
+      },
+      axisY: {
+        includeZero: false,
+        prefix: "$"
+      },
+      toolTip: {
+        shared: true
+      },
+      legend: {
+        fontSize: 13
+      },
+      data: [{
+        type: "spline",
+        showInLegend: true,
+        name: "Green Bucks",
+        horizontalAlign: "right",
+        yValueFormatString: "$#,##0",
+        xValueFormatString: "MMM YYYY",
+        dataPoints: [
+          { x: new Date(2019, 2), y: 30 },
+          { x: new Date(2019, 3), y: 35 },
+          { x: new Date(2019, 4), y: 30 },
+          { x: new Date(2019, 5), y: 75 },
+          { x: new Date(2019, 6), y: 60 },
+          { x: new Date(2019, 7), y: 37 },
+          { x: new Date(2019, 8), y: 45 },
+          { x: new Date(2019, 9), y: 67 },
+          { x: new Date(2019, 10), y: 75 },
+          { x: new Date(2019, 11), y: 38 },
+          { x: new Date(2020, 0), y: 47 },
+          { x: new Date(2020, 1), y: 75 }
         ]
+      },
+      {
+        type: "spline",
+        showInLegend: true,
+        yValueFormatString: "$#,##0",
+        name: "Dollars($)",
+        dataPoints: [
+          { x: new Date(2019, 2), y: 65 },
+          { x: new Date(2019, 3), y: 48 },
+          { x: new Date(2019, 4), y: 35 },
+          { x: new Date(2019, 5), y: 89 },
+          { x: new Date(2019, 6), y: 101 },
+          { x: new Date(2019, 7), y: 200 },
+          { x: new Date(2019, 8), y: 52 },
+          { x: new Date(2019, 9), y: 135 },
+          { x: new Date(2019, 10), y: 163 },
+          { x: new Date(2019, 11), y: 98 },
+          { x: new Date(2020, 0), y: 127 },
+          { x: new Date(2020, 1), y: 135 }
+        ]
+      }]
     });
-chart.render();
+    chart.render();
 
-var chart = new CanvasJS.Chart("chartContainer3",
+  }
+
+  var chart = new CanvasJS.Chart("chartContainer2",
     {
-        animationEnabled: true,
-        title: {
-            text: "Number of Products Purchased Monthly",
-            fontFamily: "Montserrat",
+      animationEnabled: true,
+      title: {
+        text: "($) Spending by Category",
+        fontFamily: "Montserrat",
 
+      },
+      data: [
+        {
+          type: "pie",
+          showInLegend: true,
+          dataPoints: [
+            { y: 21, legendText: "Electronics", indexLabel: "Electronics" },
+            { y: 11, legendText: "Food", indexLabel: "Food" },
+            { y: 9, legendText: "Safety/Hygiene", indexLabel: "Safety/Hygiene" },
+            { y: 11, legendText: "Home & Garden", indexLabel: "Home & Garden" },
+            { y: 10, legendText: "Pet Supplies", indexLabel: "Pet Supplies" },
+            { y: 24, legendText: "Outdoor", indexLabel: "Outdoor" },
+            { y: 14, legendText: "Office Products", indexLabel: "Office Products" }
+          ]
         },
-        axisX: {
-            valueFormatString: "MMM",
-            interval: 1,
-            intervalType: "month",
-            fontFamily: "Montserrat",
+      ]
+    });
+  chart.render();
 
-        },
-        axisY: {
-            includeZero: false,
-            fontFamily: "Montserrat",
+  var chart = new CanvasJS.Chart("chartContainer3",
+    {
+      animationEnabled: true,
+      title: {
+        text: "Number of Products Purchased Monthly",
+        fontFamily: "Montserrat",
 
-        },
-        data: [
+      },
+      axisX: {
+        valueFormatString: "MMM",
+        interval: 1,
+        intervalType: "month",
+        fontFamily: "Montserrat",
+
+      },
+      axisY: {
+        includeZero: false,
+        fontFamily: "Montserrat",
+
+      },
+      data: [
         {
           type: "line",
           fontFamily: "Montserrat",
 
           dataPoints: [
-              { x: new Date(2020, 00, 1), y: 45 },
-              { x: new Date(2020, 01, 1), y: 41 },
-              { x: new Date(2020, 02, 1), y: 52, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
-              { x: new Date(2020, 03, 1), y: 46 },
-              { x: new Date(2020, 04, 1), y: 45 },
-              { x: new Date(2020, 05, 1), y: 50 },
-              { x: new Date(2020, 06, 1), y: 48 },
-              { x: new Date(2020, 07, 1), y: 48 },
-              { x: new Date(2020, 08, 1), y: 41, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
-              { x: new Date(2020, 09, 1), y: 50 },
-              { x: new Date(2020, 10, 1), y: 48 },
-              { x: new Date(2020, 11, 1), y: 51,           fontFamily: "Montserrat",
- }
-            ]
+            { x: new Date(2020, 00, 1), y: 45 },
+            { x: new Date(2020, 01, 1), y: 41 },
+            { x: new Date(2020, 02, 1), y: 52, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
+            { x: new Date(2020, 03, 1), y: 46 },
+            { x: new Date(2020, 04, 1), y: 45 },
+            { x: new Date(2020, 05, 1), y: 50 },
+            { x: new Date(2020, 06, 1), y: 48 },
+            { x: new Date(2020, 07, 1), y: 48 },
+            { x: new Date(2020, 08, 1), y: 41, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+            { x: new Date(2020, 09, 1), y: 50 },
+            { x: new Date(2020, 10, 1), y: 48 },
+            {
+              x: new Date(2020, 11, 1), y: 51, fontFamily: "Montserrat",
+            }
+          ]
         }
-        ]
+      ]
     });
-chart.render();
+  chart.render();
 
-var chart = new CanvasJS.Chart("chartContainer4",
+  var chart = new CanvasJS.Chart("chartContainer4",
     {
-      title:{
+      title: {
         text: "Eco-Labels of Most Commonly Purchased Products",
         fontFamily: "Montserrat",
       },
 
-      legend:{
+      legend: {
         verticalAlign: "bottom",
         horizontalAlign: "center"
       },
       data: [
-      {
-        //startAngle: 45,
-       indexLabelFontSize: 20,
-       indexLabelFontFamily: "Serif",
-       indexLabelFontColor: "black",
-       indexLabelLineColor: "black",
-       indexLabelPlacement: "outside",
-       type: "doughnut",
-       showInLegend: true,
-       dataPoints: [
-       {  y: 53.37, legendText:"4C Association 53%", indexLabel: "4C Association 53%" },
-       {  y: 35.0, legendText:"AENOR Medio Ambiente 35%", indexLabel: "AENOR Medio Ambiente 35%" },
-       {  y: 7, legendText:"Bay Area Green Business 7%", indexLabel: "Bay Area Green Business 7%" },
-       {  y: 2, legendText:"Better Cotton Initiative 2%", indexLabel: "Better Cotton Initiative 2%" },
-       {  y: 5, legendText:"BIO Hellas 5%", indexLabel: "BIO Hellas 5%" }
-       ]
-     }
-     ]
-   });
+        {
+          //startAngle: 45,
+          indexLabelFontSize: 20,
+          indexLabelFontFamily: "Serif",
+          indexLabelFontColor: "black",
+          indexLabelLineColor: "black",
+          indexLabelPlacement: "outside",
+          type: "doughnut",
+          showInLegend: true,
+          dataPoints: [
+            { y: 53.37, legendText: "4C Association 53%", indexLabel: "4C Association 53%" },
+            { y: 35.0, legendText: "AENOR Medio Ambiente 35%", indexLabel: "AENOR Medio Ambiente 35%" },
+            { y: 7, legendText: "Bay Area Green Business 7%", indexLabel: "Bay Area Green Business 7%" },
+            { y: 2, legendText: "Better Cotton Initiative 2%", indexLabel: "Better Cotton Initiative 2%" },
+            { y: 5, legendText: "BIO Hellas 5%", indexLabel: "BIO Hellas 5%" }
+          ]
+        }
+      ]
+    });
 
-    chart.render();
+  chart.render();
 
-    var chart = new CanvasJS.Chart("chartContainer5", {
-	animationEnabled: true,
-	
-	title:{
-    text:"Green Scores For Recently Purchased Products",
-    fontFamily: "Montserrat",
+  var chart = new CanvasJS.Chart("chartContainer5", {
+    animationEnabled: true,
 
-	},
-	axisX:{
-		interval: 1
-	},
-	axisY2:{
-		interlacedColor: "rgba(1,77,101,.2)",
-		gridColor: "rgba(1,77,101,.1)",
-		title: "Green Score"
-	},
-	data: [{
-		type: "bar",
-		name: "companies",
-		axisYType: "secondary",
-		color: "#014D65",
-		dataPoints: [
-			{ y: 17, label: "TaoTronics Active Noise Canceling Headphones" },
-			{ y: 22, label: "Fire 7 Tablet" },
-			{ y: 28, label: "Fire TV Stick" },
-			{ y: 18, label: "Nikon COOLPIX B500" },
-			{ y: 25, label: "Logitech G633 Spectrum" },
-			{ y: 32, label: "Royalex Emulsion Semigloss" },
-			{ y: 44, label: "Softone White Roll Towel" },
-			{ y: 21, label: "3M™ Red Buffer Pad 5100" },
-			{ y: 11, label: "Excelsior Adhesive" },
-			{ y: 16, label: "9 Round Plate" }
-		]
-	}]
-});
-chart.render();  
+    title: {
+      text: "Green Scores For Recently Purchased Products",
+      fontFamily: "Montserrat",
+
+    },
+    axisX: {
+      interval: 1
+    },
+    axisY2: {
+      interlacedColor: "rgba(1,77,101,.2)",
+      gridColor: "rgba(1,77,101,.1)",
+      title: "Green Score"
+    },
+    data: [{
+      type: "bar",
+      name: "companies",
+      axisYType: "secondary",
+      color: "#014D65",
+      dataPoints: [
+        { y: 17, label: "TaoTronics Active Noise Canceling Headphones" },
+        { y: 22, label: "Fire 7 Tablet" },
+        { y: 28, label: "Fire TV Stick" },
+        { y: 18, label: "Nikon COOLPIX B500" },
+        { y: 25, label: "Logitech G633 Spectrum" },
+        { y: 32, label: "Royalex Emulsion Semigloss" },
+        { y: 44, label: "Softone White Roll Towel" },
+        { y: 21, label: "3M™ Red Buffer Pad 5100" },
+        { y: 11, label: "Excelsior Adhesive" },
+        { y: 16, label: "9 Round Plate" }
+      ]
+    }]
+  });
+  chart.render();  
 </script>
 <script>
-    var i = 0;
-function move() {
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
+  var i = 0;
+  function move() {
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("myBar");
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
       }
     }
   }
-}
 </script>
- <script>
-     // Get the modal
-var modal = document.getElementById("myModal");
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
+  // Get the <span> element that closes the modal
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+  // When the user clicks on the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "block";
+  }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
     modal.style.display = "none";
   }
-}
 
- </script>     
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
- <div>
- </div>
+</script>
+
+<div>
+</div>
+
 </html>
