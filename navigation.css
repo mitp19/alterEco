@@ -42,3 +42,8 @@ a {
     margin-left: auto;
     margin-right: auto;
    }
+
+   .productSubHeading {
+       text-transform: uppercase;
+       font-size: 14px;
+   }

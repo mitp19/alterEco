@@ -89,7 +89,7 @@ h1 {
                   background-color: rgb(223, 223, 223);
               }
   
-              hr {
+hr {
     display: block;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -166,4 +166,9 @@ h1 {
 
 body {
     padding: 25px;
+}
+
+
+.canvasjs-chart-credit {
+  display: none;
 }
